@@ -3,58 +3,88 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>カニbotの取説</title>
+	<title>How to "Kani-bot"</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Lexend+Exa&display=swap" rel="stylesheet">
+
 	<style>
 		body {
-			font-size  : 13pt;
-			background-color : #eee;
+			font-family: 'Lexend Exa', 'Kosugi Maru', sans-serif;
+			background-color : #fff;
+			padding : 0px;
+			margin  : 10px 0px;
+			line-height : 150%;
+			-webkit-text-size-adjust:none;
 		}
-		
+
 		.title_contents {
+			background-color : #fff;
+			color : #f22;
 			width: 100%;
-			margin : 10px 0px 10px 0px;
+			margin: 0px 0px;
+			padding : 70px 0px 70px 0px;
+		}
+
+		.hoot_contents {
+			width: auto;
+			max-width: 900px;
+			margin : 10px auto;
+			width : 95%;
+			text-align:right;
+			font-size: 75%;
 		}
 
 		.main_contents {
-			width: 100%;
-			margin: auto;
-			background-color : #fff;
+			background-color:white;
+			width: 95%;
+			max-width: 900px;
+			margin: 0px auto;
+			padding: 30px 0px;
+			box-shadow: 0px 0px 4px gray;
 		}
-		
-		@media screen and (min-width:800px) {
-			.main_contents {
-				width  : 80%;
+						
+		@media all and (min-width: 600px) {
+			.wrapper {
+				display: flex;
 			}
 		}
-		
+
 		.content {
-			width : 95%;
-			margin: auto;
-			padding: 10px 0px;
+			width : auto;
+
+			margin: 0px 0px;
+			padding: 30px 0px;
 		}
 
 		.content_title {
-			border : solid 1px #f00;
-			padding : 0px 0px 0px 5pt;
-			width : 100%;
-			margin: 10px 0px;
+			border-bottom : dashed 1px #999;
+			border-top : dashed 1px #999;
+			width : auto;
+			color: #f50;
+			
+			margin: 0px;
+			padding: 30px 70px;
+		}
+
+		.content_husen:before {
+			content: "🦀";
 		}
 
 		.content_husen {
-			border-left : solid 5pt #fbb;
-			padding : 0px 0px 0px 5pt;
-			width : 100%;
-			margin: 10px 0px;
+			width : auto;
 		}
 
 		.content_body {
-			width : 95%;
-			margin: auto;
+			font-size: 15pt;
+			width : auto;
+			margin: 0px;
+			padding: 30px 70px;
 		}
 
 		h1 {
 			font-size  : 35pt;
 			text-align : center;
+			margin : 20px 0px;
 		}
 
 		h2 {
@@ -76,37 +106,116 @@
 		}
 	</style>
 </head>
-<body onload="load()">
+<body onload="">
 	<div class="title_contents">
-		<h1>カニbotの使い方</h1>
-		<div style="text-align:center">現在作成中です。ゴメンネ。がんばる。</div>
+		<h1>How to "Kani-bot"</h1>
+		<div style="text-align:center">ゆっくり作成中です。がんばる。</div>
 	</div>
 	<div class="main_contents">
 		<div class="content">
-			<h2 class="content_title">カニbotとは？</h2>
-			<div class="content_body">俺が聞きたいぐらいだ！！！！</div>
+			<h2 class="content_title">Kani-bot (かにbot) ってなんなのさ</h2>
+			<div class="content_body">
+				<div class="wrapper">
+					<div style="">
+						どっかの誰かが、botの作り方とかスクリプトの書き方とかを勉強をしていたら産まれたbotです。<br />
+						完全にお遊びなので、ガバガバな部分が多々あると思います。いっときの暇つぶし程度に遊んでいただけたら幸いです。<br />
+						暇つぶせるほど機能ないけどね。まいった。
+					</div>
+					<div style="text-align:center;">
+						<div >
+							<img src="picture/kani.png" style="min-width:170px; max-width:100%;"/>
+						</div>
+						<div style="text-align:center">
+							私がカニです。
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="content">
-			<h2 class="content_title">カニとの戯れかた</h2>
+			<h2 class="content_title">なにができるのさ</h2>
 			<div class="content_body">
 				<h3 class="content_husen">カニガチャ</h3>
-				<p>カニに「カニガチャ」と送ってみよう！</p>
+				<p>
+					カニに「<b>カニガチャ</b>」と送ってみよう！<br />
+					ランダムでイケイケなカニの画像が1枚送られてくるぞ！
+					色々なカニがキミを待っている！
+				</p>
 				<p>
 					キャラ数と提供確率<br />
 					キャラ数 : <span id="charaCountAll">?</span>匹
-					<table style="margin-left: 10pt">
-						<tr><td>N</td><td><span class="charaCount"></span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
-						<tr><td>R</td><td><span class="charaCount"></span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
-						<tr><td>SR</td><td><span class="charaCount"></span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
-						<tr><td>SSR</td><td><span class="charaCount"></span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
+					<table style="margin-left: 30pt">
+						<tr><td>N</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
+						<tr><td>R</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
+						<tr><td>SR</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
+						<tr><td>SSR</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
 					</table>
 				</p>
 				<h3 class="content_husen">なんか話して</h3>
 				<p>
-					カニに「何か話して」みたいなことを送ってみよう！<br />
-					<span id="speakVariation"></span>種類の中から1つ、あなたにどうでもいい話をしてくれます。
+					カニに「<b>なんか話して</b>」と送ってみよう！<br />
+					カニが、<span id="speakVariation">?</span>種類の中から1つ、タメになったりならなかったりすることを話すぞ！だいたいタメにならない！
+				</p>
+				<div style="margin: 100px 0px 0px 0px; color:#999;">
+					※数値が ? 表示になっている場合、何らかの原因で情報が取得できませんでした。ごめんなさい！
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<h2 class="content_title">更新履歴</h2>
+			<div class="content_body">
+				<p>
+					誰が見るねんって感じだけど、残しておきます。
+				</p>
+				<h3 class="content_husen">2019/08/20</h3>
+				<p>
+					チュートリアルページ(これ)の作成しなおし。<br />
+					ちょっとは見た目がマシになった気がする。<br />
+					Google Apps Scriptで無理やり表示させていたのをやめて、Github Pagesで公開してみました。カンタン。神。
+				</p>
+				<h3 class="content_husen">2019/02/22</h3>
+				<p>
+					「カニガチャ」実装。出てくるカニは自分で描いた 4 種類 + 描いていただいてしまった 4 種類。ありがとうございます。<br />
+					「なんか話して」実装。15種類くらいから喋ります。
+				</p>
+				<h3 class="content_husen">2019/02/21</h3>
+				<p>
+					Google Apps Script導入。メッセージ書き込むとオウム返しをしてくるbot爆誕。
+				</p>
+				<h3 class="content_husen">2019/02/20</h3>
+				<p>
+					Kani-bot爆誕。<br />
+					何を書き込んでも<br />
+					「メッセージありがとうございます😄<br />
+					　申し訳ありませんが、このアカウントでは個別のご返信ができないのです🙁<br />
+					　次の配信をお楽しみに✨」<br />
+					しか返ってこない。(デフォルトメッセージ)
 				</p>
 			</div>
+		</div>
+		<div class="content">
+			<h2 class="content_title">すぺしゃるさんくす</h2>
+			<div class="content_body">
+				<div class="content_husen">こまぷー さん</div>
+				<p>
+					カニガチャに出てくるイラスト 2 種類
+				</p>
+				<div class="content_husen">ばんぱー さん</div>
+				<p>
+					カニガチャに出てくるイラスト 2 種類 + 一部の解説文
+				</p>
+				<p style="margin: 40px 0px;">
+					...and You🦀
+				</p>
+				<p>
+					ありがとうございます。いやホントに。ホントよ！
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="hoot_contents">
+		<div>
+			2019 Kani-bot
 		</div>
 	</div>
 
