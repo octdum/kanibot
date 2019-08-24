@@ -95,6 +95,10 @@
 			font-size  : 17pt;
 		}
 
+		li {
+			padding : 10px 0px; 
+		}
+
 		.charaCount {
 			color : #f00;
 		}
@@ -142,8 +146,8 @@
 					色々なカニがキミを待っている！
 				</p>
 				<p>
-					キャラ数と提供確率<br />
-					キャラ数 : <span id="charaCountAll">?</span>匹
+					<b>☆カニ種類数と提供確率</b><br />
+					カニ種類数 : <span id="charaCountAll">?</span>匹
 					<table style="margin-left: 30pt">
 						<tr><td>N</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
 						<tr><td>R</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
@@ -151,10 +155,19 @@
 						<tr><td>SSR</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
 					</table>
 				</p>
+				<h3 class="content_husen">カニ図鑑</h3>
+				<p>
+					カニに「<b>カニ図鑑</b>」と送ってみよう！<br />
+					カニが世界中のカニについて教えてくれるぞ(wiki調べ)
+				</p>
 				<h3 class="content_husen">なんか話して</h3>
 				<p>
 					カニに「<b>なんか話して</b>」と送ってみよう！<br />
 					カニが、<span id="speakVariation">?</span>種類の中から1つ、タメになったりならなかったりすることを話すぞ！だいたいタメにならない！
+				</p>
+				<h3 class="content_husen">その他</h3>
+				<p>
+					カニは稀に特定のメッセージや単語に反応することがあるぞ。稀に。ホント稀に。見つけたらラッキー！
 				</p>
 				<div style="margin: 100px 0px 0px 0px; color:#999;">
 					※数値が ? 表示になっている場合、何らかの原因で情報が取得できませんでした。ごめんなさい！
@@ -167,40 +180,76 @@
 				<p>
 					誰が見るねんって感じだけど、残しておきます。
 				</p>
+				<h3 class="content_husen">2019/08/25</h3>
+				<ul>
+					<li>
+						<b>特定のメッセージや単語に反応する機能を完全に自前のスクリプトで動作するようにしました。</b><br />
+						(今までLine@の標準機能と併用していて、不具合が出ていたため)<br />
+						→これにより、反応する単語設定の自由度が上がって、少しだけ柔軟になりました。(表記ゆれを許容したり)<br />
+						→柔軟すぎて想定外な返事を返すかもしれないですが、どうにかしようとはするので許して
+					</li>
+					<li>
+						<b>特定の時間限定のメッセージを一時的に削除</b><br />
+						夜話しかけて「カニいつも寝てるんだけど」ってなってたっぽい＆まだその機能を自前で作れていないため。
+					</li>
+					<li>
+						<b>「カニ図鑑」機能追加。</b><br />
+						最初作ろうとしてた機能を今頃作りました。wikipedia様は何でも知ってる。
+					</li>
+				</ul>
 				<h3 class="content_husen">2019/08/20</h3>
-				<p>
-					チュートリアルページ(これ)の作成しなおし。<br />
-					ちょっとは見た目がマシになった気がする。<br />
-					Google Apps Scriptで無理やり表示させていたのをやめて、Github Pagesで公開してみました。カンタン。神。
-				</p>
+				<ul>
+					<li>
+						<b>チュートリアルページ(これ)の作成しなおし。</b><br />
+						ちょっとは見た目がマシになった気がする。
+					</li>
+					<li>
+						Google Apps Scriptで無理やり表示させていたのをやめて、Github Pagesで公開してみました。カンタン。神。
+					</li>
+				</ul>
 				<h3 class="content_husen">2019/02/22</h3>
-				<p>
-					「カニガチャ」実装。出てくるカニは自分で描いた 4 種類 + 描いていただいてしまった 4 種類。ありがとうございます。<br />
-					「なんか話して」実装。15種類くらいから喋ります。
-				</p>
+				<ul>
+					<li>
+						<b>チュートリアルページ作成。</b><br />
+						かなり雑。
+					</li>
+					<li>
+						<b>「カニガチャ」機能追加。</b><br />
+						出てくるカニは自分で描いた 4 種類 + 描いていただいてしまった 4 種類。ありがとうございます。
+					</li>
+					<li>
+						<b>「なんか話して」機能追加。</b><br />
+						15種類くらいから喋ります。
+					</li>
+				</ul>
 				<h3 class="content_husen">2019/02/21</h3>
-				<p>
-					Google Apps Script導入。メッセージ書き込むとオウム返しをしてくるbot爆誕。
-				</p>
+				<ul>
+					<li>
+						<b>Google Apps Script導入。</b><br />
+						メッセージ書き込むとオウム返しをしてくるbot爆誕。
+					</li>
+				</ul>
 				<h3 class="content_husen">2019/02/20</h3>
-				<p>
-					Kani-bot爆誕。<br />
-					何を書き込んでも<br />
-					「メッセージありがとうございます😄<br />
-					　申し訳ありませんが、このアカウントでは個別のご返信ができないのです🙁<br />
-					　次の配信をお楽しみに✨」<br />
-					しか返ってこない。(デフォルトメッセージ)
-				</p>
+				<ul>
+					<li>
+						<b>Kani-bot爆誕。</b><br />
+						何を書き込んでも<br />
+						　「メッセージありがとうございます😄<br />
+						　申し訳ありませんが、このアカウントでは個別のご返信ができないのです🙁<br />
+						　次の配信をお楽しみに✨」<br />
+						しか返ってこない。(デフォルトメッセージ)
+					</li>
+				</ul>
 			</div>
 		</div>
 		<div class="content">
 			<h2 class="content_title">すぺしゃるさんくす</h2>
 			<div class="content_body">
-				<div class="content_husen">こまぷー さん</div>
+				<div class="content_husen"><b>こまぷー</b> さん</div>
 				<p>
 					カニガチャに出てくるイラスト 2 種類
 				</p>
-				<div class="content_husen">ばんぱー さん</div>
+				<div class="content_husen"><b>ばんぱー</b> さん</div>
 				<p>
 					カニガチャに出てくるイラスト 2 種類 + 一部の解説文
 				</p>
