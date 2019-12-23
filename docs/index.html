@@ -65,6 +65,9 @@
 			
 			margin: 0px;
 			padding: 30px 70px;
+
+			font-size: 150%;
+			font-weight: bold;
 		}
 
 		.content_husen:before {
@@ -72,7 +75,10 @@
 		}
 
 		.content_husen {
-			width : auto;
+			width: auto;
+			font-size : 120%;
+			font-weight: bold;
+			padding: 30px 0px 0px 0px;
 		}
 
 		.content_body {
@@ -85,14 +91,6 @@
 			font-size  : 200%;
 			text-align : center;
 			margin : 20px 0px;
-		}
-
-		h2 {
-			font-size  : 150%;
-		}
-
-		h3 {
-			font-size  : 120%;
 		}
 
 		li {
@@ -121,7 +119,7 @@
 	</div>
 	<div class="main_contents">
 		<div class="content">
-			<h2 class="content_title">Kani-bot (かにbot) ってなんなのさ</h2>
+			<div class="content_title">Kani-bot (かにbot) ってなんなのさ</div>
 			<div class="content_body">
 				<div class="wrapper">
 					<div style="">
@@ -141,9 +139,9 @@
 			</div>
 		</div>
 		<div class="content">
-			<h2 class="content_title">なにができるのさ</h2>
+			<div class="content_title">なにができるのさ</div>
 			<div class="content_body">
-				<h3 class="content_husen">カニガチャ</h3>
+				<div class="content_husen">カニガチャ</div>
 				<p>
 					カニに「<b>カニガチャ</b>」と送ってみよう！<br />
 					ランダムでイケイケなカニの画像が1枚送られてくるぞ！
@@ -159,17 +157,17 @@
 						<tr><td>SSR</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
 					</table>
 				</p>
-				<h3 class="content_husen">カニ図鑑</h3>
+				<div class="content_husen">カニ図鑑</div>
 				<p>
 					カニに「<b>カニ図鑑</b>」と送ってみよう！<br />
 					カニが世界中のカニについて教えてくれるぞ(wiki調べ)
 				</p>
-				<h3 class="content_husen">なんか話して</h3>
+				<div class="content_husen">なんか話して</div>
 				<p>
 					カニに「<b>なんか話して</b>」と送ってみよう！<br />
 					カニが、<span id="speakVariation">?</span>種類の中から1つ、タメになったりならなかったりすることを話すぞ！だいたいタメにならない！
 				</p>
-				<h3 class="content_husen">その他</h3>
+				<div class="content_husen">その他</div>
 				<p>
 					カニは稀に特定のメッセージや単語に反応することがあるぞ。稀に。ホント稀に。見つけたらラッキー！
 				</p>
@@ -179,12 +177,20 @@
 			</div>
 		</div>
 		<div class="content">
-			<h2 class="content_title">更新履歴</h2>
+			<div class="content_title">更新履歴</div>
 			<div class="content_body">
 				<p>
 					誰が見るねんって感じだけど、残しておきます。
 				</p>
-				<h3 class="content_husen">2019/08/25</h3>
+				<div class="content_husen">2019/12/23</div>
+				<ul>
+					<li>
+						<b>「カニガチャ」の絵柄追加。</b><br />
+						5種類増えました。新規のカニは出てくる確率がほんの少し高くなってます。<br />
+						「SSR」枠のカニがようやく追加されました。ちょっとだけ絵がレアっぽいです。クオリティはさておき。
+					</li>
+				</ul>
+				<div class="content_husen">2019/08/25</div>
 				<ul>
 					<li>
 						<b>特定のメッセージや単語に反応する機能を完全に自前のスクリプトで動作するようにしました。</b><br />
@@ -201,7 +207,7 @@
 						最初作ろうとしてた機能を今頃作りました。wikipedia様は何でも知ってる。
 					</li>
 				</ul>
-				<h3 class="content_husen">2019/08/20</h3>
+				<div class="content_husen">2019/08/20</div>
 				<ul>
 					<li>
 						<b>チュートリアルページ(これ)の作成しなおし。</b><br />
@@ -211,7 +217,7 @@
 						Google Apps Scriptで無理やり表示させていたのをやめて、Github Pagesで公開してみました。カンタン。神。
 					</li>
 				</ul>
-				<h3 class="content_husen">2019/02/22</h3>
+				<div class="content_husen">2019/02/22</div>
 				<ul>
 					<li>
 						<b>チュートリアルページ作成。</b><br />
@@ -226,7 +232,7 @@
 						15種類くらいから喋ります。
 					</li>
 				</ul>
-				<h3 class="content_husen">2019/02/21</h3>
+				<div class="content_husen">2019/02/21</div>
 				<ul>
 					<li>
 						<b>Google Apps Script導入。</b><br />
@@ -247,7 +253,7 @@
 			</div>
 		</div>
 		<div class="content">
-			<h2 class="content_title">すぺしゃるさんくす</h2>
+			<div class="content_title">すぺしゃるさんくす</div>
 			<div class="content_body">
 				<div class="content_husen"><b>こまぷー</b> さん</div>
 				<p>
