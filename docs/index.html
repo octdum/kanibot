@@ -97,17 +97,8 @@
 			padding : 10px 0px; 
 		}
 
-		.charaCount {
-			color : #f00;
-		}
-		.dropRate {
-			color : #f00;
-		}
-		#speakVariation {
-			color : #f00;
-		}
-		#charaCountAll {
-			color : #f00;
+		.state_value {
+			color: #f00;
 		}
 
 	</style>
@@ -149,23 +140,30 @@
 				</p>
 				<p>
 					<b>☆カニ種類数と提供確率</b><br />
-					カニ種類数 : <span id="charaCountAll">?</span>匹
+					カニ種類数 : <span id="state_gacha_variation_all" class="state_value">?</span>匹
 					<table style="margin-left: 30pt">
-						<tr><td>N</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
-						<tr><td>R</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
-						<tr><td>SR</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
-						<tr><td>SSR</td><td><span class="charaCount">?</span>匹</td><td>(<span class="dropRate">?</span>%)</td></tr>
+						<tr><td>N</td>  <td><span class="state_value state_gacha_variation_rares">?</span>匹</td><td>(<span class="state_value state_gacha_rates">?</span>%)</td></tr>
+						<tr><td>R</td>  <td><span class="state_value state_gacha_variation_rares">?</span>匹</td><td>(<span class="state_value state_gacha_rates">?</span>%)</td></tr>
+						<tr><td>SR</td> <td><span class="state_value state_gacha_variation_rares">?</span>匹</td><td>(<span class="state_value state_gacha_rates">?</span>%)</td></tr>
+						<tr><td>SSR</td><td><span class="state_value state_gacha_variation_rares">?</span>匹</td><td>(<span class="state_value state_gacha_rates">?</span>%)</td></tr>
 					</table>
 				</p>
 				<div class="content_husen">カニ図鑑</div>
 				<p>
 					カニに「<b>カニ図鑑</b>」と送ってみよう！<br />
-					カニが世界中のカニについて教えてくれるぞ(wiki調べ)
+					カニが世界中のカニについて教えてくれるぞ(wiki調べ)<br />
+					※現在は <span id="state_dictionary_variation" class="state_value">?</span>種類のカニから1つを教えてくれます。
+				</p>
+				<div class="content_husen">カニじゃんけん</div>
+				<p>
+					カニに「<b>じゃんけん</b>」と送ってみよう！<br />
+					カニとじゃんけんで勝負できるぞ！<br />
+					カニだからと言って侮ってはならない！このカニ無駄に運がいいぞ！<br />
 				</p>
 				<div class="content_husen">なんか話して</div>
 				<p>
 					カニに「<b>なんか話して</b>」と送ってみよう！<br />
-					カニが、<span id="speakVariation">?</span>種類の中から1つ、タメになったりならなかったりすることを話すぞ！だいたいタメにならない！
+					カニが、<span id="state_speak_variation" class="state_value">?</span>種類の中から1つ、タメになったりならなかったりすることを話すぞ！だいたいタメにならない！
 				</p>
 				<div class="content_husen">その他</div>
 				<p>
@@ -182,6 +180,15 @@
 				<p>
 					誰が見るねんって感じだけど、残しておきます。
 				</p>
+				<div class="content_husen">2020/05/05</div>
+				<ul>
+					<li>
+						<b>「カニじゃんけん」機能追加。</b><br />
+						こちらが何を出してもカニが負けてるくせに、「俺の勝ち！」と言い張ってくるプログラムのミスがありましたが早急に直しました。<br />
+						よく負けますがちゃんと勝てるのでご安心ください。
+					</li>
+				</ul>
+				<hr />
 				<div class="content_husen">2019/12/23</div>
 				<ul>
 					<li>
@@ -244,9 +251,9 @@
 					<li>
 						<b>Kani-bot爆誕。</b><br />
 						何を書き込んでも<br />
-						　「メッセージありがとうございます😄<br />
-						　申し訳ありませんが、このアカウントでは個別のご返信ができないのです🙁<br />
-						　次の配信をお楽しみに✨」<br />
+						「メッセージありがとうございます😄<br />
+						申し訳ありませんが、このアカウントでは個別のご返信ができないのです🙁<br />
+						次の配信をお楽しみに✨」<br />
 						しか返ってこない。(デフォルトメッセージ)
 					</li>
 				</ul>
@@ -274,7 +281,7 @@
 	</div>
 	<div class="hoot_contents">
 		<div>
-			2019 Kani-bot
+			2019-2020 Kani-bot
 		</div>
 	</div>
 
@@ -292,21 +299,23 @@
 				if (req.readyState == 4 && req.status == 200) {
 					//正常取得 //req.responseText
 
-					var eDropRate = document.getElementsByClassName("dropRate");
-					var eCharaCount = document.getElementsByClassName("charaCount");
-					var eCharaCountAll = document.getElementById("charaCountAll");
-					var eSpeakVariation = document.getElementById("speakVariation");
+					var eStateGachaRates          = document.getElementsByClassName("state_gacha_rates");
+					var eStateGachaVariationRares = document.getElementsByClassName("state_gacha_variation_rares");
+					var eStateGachaVariationAll   = document.getElementById        ("state_gacha_variation_all");
+					var eStateSpeakVariation      = document.getElementById        ("state_speak_variation");
+					var eStateDictionaryVariation = document.getElementById        ("state_dictionary_variation");
 
 					var json = JSON.parse(req.responseText);
 
 					for (var i = 0; i < 4; i++) {
 						var bosu = json.values[5][0];
 						var sisu = json.values[6 + i][0];
-						eCharaCount[i].textContent = json.values[1 + i][0];
-						eDropRate[i].textContent = Math.floor(sisu / bosu * 10000) / 100;
+						eStateGachaVariationRares[i].textContent = json.values[1 + i][0];
+						eStateGachaRates[i].textContent = Math.floor(sisu / bosu * 10000) / 100;
 					}
-					eCharaCountAll.textContent = json.values[0][0];
-					eSpeakVariation.textContent = json.values[10][0];
+					eStateGachaVariationAll.textContent = json.values[0][0];
+					eStateSpeakVariation.textContent = json.values[10][0];
+					eStateDictionaryVariation.textContent = json.values[11][0];
 				}
 			}
 			req.open("GET", sheetUrl, false); // HTTPメソッドとアクセスするサーバーの　URL　を指定
