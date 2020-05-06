@@ -305,14 +305,14 @@
 					var status = req.responseText.split(',');
 
 					for (var i = 0; i < 4; i++) {
-						var bosu = json.values[5];
-						var sisu = json.values[6 + i];
-						eStateGachaVariationRares[i].textContent = json.values[1 + i];
+						var bosu = status[5];
+						var sisu = status[6 + i];
+						eStateGachaVariationRares[i].textContent = status[1 + i];
 						eStateGachaRates[i].textContent = Math.floor(sisu / bosu * 10000) / 100;
 					}
-					eStateGachaVariationAll.textContent = json.values[0];
-					eStateSpeakVariation.textContent = json.values[10];
-					eStateDictionaryVariation.textContent = json.values[11];
+					eStateGachaVariationAll.textContent = status[0];
+					eStateSpeakVariation.textContent = status[10];
+					eStateDictionaryVariation.textContent = status[11];
 				}
 			}
 			req.open("GET", sheetUrl, true); // HTTPメソッドとアクセスするサーバーの　URL　を指定
