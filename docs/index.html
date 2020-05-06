@@ -287,38 +287,35 @@
 
 	<script>
 		function load() {
-			var infoSheet = '0:Root';
-			var infoRange = 'L2:L';
-			var apiKey = 'AIzaSyDnlP0rannvrfi-jlygNYOPLCaUx6lMlzs'; // このページ上のみ有効
-			var sheetId = '128IaLG4Zb4ocaaAuOtNnEJdfTZETiXKlbNjDJEjhiFA'
-			var sheetUrl = 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId + '/values/' + infoSheet + '!' + infoRange + '?key=' + apiKey;
 
-			//ガチャの要素合計[合計, レア度別合計], 比重[合計, レア度別合計], なんか喋っての要素数 
+			var sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTpXkJlEaePJ2SBYkpn1CVd79AOp0FMXizw1e3kh8QS0NrbOsTJTahxBAbH3tKngYCf2H-ZG-Vkkij_/pub?gid=669264084&single=true&output=csv'
+
+			var eStateGachaRates          = document.getElementsByClassName("state_gacha_rates");
+			var eStateGachaVariationRares = document.getElementsByClassName("state_gacha_variation_rares");
+			var eStateGachaVariationAll   = document.getElementById("state_gacha_variation_all");
+			var eStateSpeakVariation      = document.getElementById("state_speak_variation");
+			var eStateDictionaryVariation = document.getElementById("state_dictionary_variation");
+
+			//ガチャの要素合計[合計, レア度別合計], 比重[合計, レア度別合計], なんか喋っての要素数
 			var req = new XMLHttpRequest();
 			req.onreadystatechange = function () {
 				if (req.readyState == 4 && req.status == 200) {
 					//正常取得 //req.responseText
 
-					var eStateGachaRates          = document.getElementsByClassName("state_gacha_rates");
-					var eStateGachaVariationRares = document.getElementsByClassName("state_gacha_variation_rares");
-					var eStateGachaVariationAll   = document.getElementById        ("state_gacha_variation_all");
-					var eStateSpeakVariation      = document.getElementById        ("state_speak_variation");
-					var eStateDictionaryVariation = document.getElementById        ("state_dictionary_variation");
-
-					var json = JSON.parse(req.responseText);
+					var status = req.responseText.split(',');
 
 					for (var i = 0; i < 4; i++) {
-						var bosu = json.values[5][0];
-						var sisu = json.values[6 + i][0];
-						eStateGachaVariationRares[i].textContent = json.values[1 + i][0];
+						var bosu = json.values[5];
+						var sisu = json.values[6 + i];
+						eStateGachaVariationRares[i].textContent = json.values[1 + i];
 						eStateGachaRates[i].textContent = Math.floor(sisu / bosu * 10000) / 100;
 					}
-					eStateGachaVariationAll.textContent = json.values[0][0];
-					eStateSpeakVariation.textContent = json.values[10][0];
-					eStateDictionaryVariation.textContent = json.values[11][0];
+					eStateGachaVariationAll.textContent = json.values[0];
+					eStateSpeakVariation.textContent = json.values[10];
+					eStateDictionaryVariation.textContent = json.values[11];
 				}
 			}
-			req.open("GET", sheetUrl, false); // HTTPメソッドとアクセスするサーバーの　URL　を指定
+			req.open("GET", sheetUrl, true); // HTTPメソッドとアクセスするサーバーの　URL　を指定
 			req.send(null);
 		}
 		load();
