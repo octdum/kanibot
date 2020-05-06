@@ -302,7 +302,7 @@
 				if (req.readyState == 4 && req.status == 200) {
 					//正常取得 //req.responseText
 
-					var status = req.responseText.split(',');
+					var status = req.responseText.split('\n');
 
 					for (var i = 0; i < 4; i++) {
 						var bosu = status[5];
