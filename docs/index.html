@@ -341,7 +341,7 @@
 			const eStateGachaVariationAll   = document.getElementById("state_gacha_variation_all");
 			const eStateSpeakVariation      = document.getElementById("state_speak_variation");
 			const eStateDictionaryVariation = document.getElementById("state_dictionary_variation");
-            const eStateQuizVariation       = document.getElementsByClassName("state_quiz_variation");
+            const eStateQuizVariation       = document.getElementById("state_quiz_variation");
 
 			let req = new XMLHttpRequest();
 			req.onreadystatechange = function () {
@@ -357,7 +357,7 @@
 					eStateGachaVariationAll.textContent = status[0];
 					eStateSpeakVariation.textContent = status[9];
 					eStateDictionaryVariation.textContent = status[10];
-					eStateQuizVariation.textContent = status[11];
+					eStateQuizVariation.textContent = status[12];
 				}
 			}
 			req.open("GET", sheetUrl, true);
