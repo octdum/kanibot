@@ -161,6 +161,13 @@
 					カニとじゃんけんで勝負できるぞ！<br />
 					カニだからと言って侮ってはならない！このカニ無駄に運がいいぞ！<br />
 				</p>
+				<div class="content_husen">カニクイズ</div>
+				<p>
+					カニに「<b>カニクイズ</b>」と送ってみよう！<br />
+					カニがクイズを出してくるので、正解が書かれたボタンを押して答えよう。<br />
+					(現在は〇か×かしか聞いてきません。俗にいうニブイチ)<br />
+					※ クイズは現在<span id="state_quiz_variation" class="state_value">?</span>種類からランダムで出題されます<br />
+				</p>
 				<div class="content_husen">なんか話して</div>
 				<p>
 					カニに「<b>なんか話して</b>」と送ってみよう！<br />
@@ -203,6 +210,23 @@
 					誰が見るねんって感じだけど、残しておきます。
 				</p>
 				<details open>
+					<summary>2021</summary>
+					<div class="content_husen">2020/04/28</div>
+					<ul>
+						<li>
+							<b>「カニクイズ」機能の追加</b><br />
+							とりあえず〇か×で答えていく形にしました。<br />
+							(クイズの作問経験が本当になく、問題に"不備"があるかもしれません。ごめんなさい。)<br />
+							実装が終わったあと、問題を考えているときに〇×クイズの「作問」難易度の高さに気づき、「択一クイズ」にしたくなりました。<br />
+							ので、もしかしたらいつか択一式に変更するかも。
+						</li>
+						<li>
+							<b>「カニガチャ」の仕様変更</b><br />
+							いままではカード1枚ごとに排出比重が設定されていましたが、レアリティごとに確率が設定され、レアリティ内のカードすべてが平等な確率で出てくる形に変更しました。<br />
+						</li>
+					</ul>
+				</details>
+				<details>
 					<summary>2020</summary>
 					<div class="content_husen">2020/05/06</div>
 					<ul>
@@ -303,7 +327,7 @@
 	</div>
 	<div class="hoot_contents">
 		<div>
-			2019-2020 Kani-bot
+			2019-2021 Kani-bot
 		</div>
 	</div>
 
@@ -313,10 +337,11 @@
 			const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTpXkJlEaePJ2SBYkpn1CVd79AOp0FMXizw1e3kh8QS0NrbOsTJTahxBAbH3tKngYCf2H-ZG-Vkkij_/pub?gid=669264084&single=true&output=csv'
 
 			const eStateGachaRates          = document.getElementsByClassName("state_gacha_rates");
-			const eStateGachaVariationRares = document.getElementsByClassName("state_gacha_variation_rares");
+            const eStateGachaVariationRares = document.getElementsByClassName("state_gacha_variation_rares");
 			const eStateGachaVariationAll   = document.getElementById("state_gacha_variation_all");
 			const eStateSpeakVariation      = document.getElementById("state_speak_variation");
 			const eStateDictionaryVariation = document.getElementById("state_dictionary_variation");
+            const eStateQuizVariation       = document.getElementsByClassName("state_quiz_variation");
 
 			let req = new XMLHttpRequest();
 			req.onreadystatechange = function () {
@@ -332,6 +357,7 @@
 					eStateGachaVariationAll.textContent = status[0];
 					eStateSpeakVariation.textContent = status[9];
 					eStateDictionaryVariation.textContent = status[10];
+					eStateQuizVariation.textContent = status[11];
 				}
 			}
 			req.open("GET", sheetUrl, true);
